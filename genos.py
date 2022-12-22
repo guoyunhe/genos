@@ -2,7 +2,12 @@
 
 import sys
 import random
+import gettext
 from PySide6 import QtCore, QtWidgets, QtGui
+
+_ = gettext.gettext
+
+binName = 'genos'
 
 
 class MyWidget(QtWidgets.QWidget):
@@ -27,6 +32,10 @@ class MyWidget(QtWidgets.QWidget):
 
 
 if __name__ == "__main__":
+    gettext.bindtextdomain(binName)
+
+    print(_('Hello World'))
+
     app = QtWidgets.QApplication([])
 
     widget = MyWidget()

@@ -1,0 +1,4 @@
+#: genos.py:37
+#, fuzzy
+msgid "Hello World"
+msgstr "Yoo"

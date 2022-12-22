@@ -1,0 +1,3 @@
+#: genos.py:37
+msgid "Hello World"
+msgstr ""

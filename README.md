@@ -17,3 +17,9 @@ The toolbox that makes openSUSE users happier. Written in Python. Use Qt for GUI
 
 - openSUSE Tumbleweed
 - openSUSE Leap 15.4+
+
+## Dependencies
+
+- kdesu
+- python3
+- python3-pyside6
