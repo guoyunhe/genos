@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import socket
+from app.cleaners.journal import JournalCleaner
 
 s = socket.socket()
 
@@ -11,6 +12,11 @@ print("socket binded to %s" % (port))
 
 s.listen(5)
 print("socket is listening")
+
+
+JournalCleaner.usage()
+JournalCleaner.clean()
+JournalCleaner.usage()
 
 while True:
 
