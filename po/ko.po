@@ -1,0 +1,18 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: genos\n"
+"X-Crowdin-Project-ID: 557033\n"
+"X-Crowdin-Language: ko\n"
+"X-Crowdin-File: /main/po/template.pot\n"
+"X-Crowdin-File-ID: 41317\n"
+"Project-Id-Version: genos\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Korean\n"
+"Language: ko_KR\n"
+"PO-Revision-Date: 2022-12-22 11:36\n"
+
+#: genos.py:37
+msgid "Hello World"
+msgstr ""
+
