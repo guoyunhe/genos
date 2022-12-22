@@ -1,0 +1,3 @@
+"files":
+  - "source": "/po/template.pot"
+    "translation": "/po/%osx_locale%.po"
