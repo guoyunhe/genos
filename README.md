@@ -1,6 +1,6 @@
 # Genos Toolbox
 
-The toolbox that makes openSUSE users happier. Written in Python. Use wxWidgets for GUI.
+The toolbox that makes openSUSE users happier. Written in Python. Use Qt for GUI.
 
 ## Features
 
