@@ -2,33 +2,33 @@
 
 import socket
 from app.cleaners.journal import JournalCleaner
+from app.config import socket_port
 
 s = socket.socket()
+host = socket.gethostname()
 
-port = 12345
+s.bind((host, socket_port))
 
-s.bind(('', port))
-print("socket binded to %s" % (port))
+s.listen(0)
 
-s.listen(5)
-print("socket is listening")
-
-
-JournalCleaner.usage()
-JournalCleaner.clean()
-JournalCleaner.usage()
+# Establish connection with client
+c, addr = s.accept()
 
 while True:
+    # Receive data
+    msg = c.recv(1024).decode()
+    params = msg.split()
 
-    # Establish connection with client.
-    c, addr = s.accept()
-    print('Got connection from', addr)
-
-    # send a thank you message to the client. encoding to send byte type.
-    c.send('Thank you for connecting'.encode())
-
-    # Close the connection with the client
-    c.close()
-
-    # Breaking once connection closed
-    break
+    if params[0] == 'clean':
+        if params[0] == 'journal':
+            JournalCleaner.clean()
+    elif params[0] == 'config':
+        pass
+    elif params[0] == 'quit':
+        # Close the connection with the client
+        c.close()
+        # Breaking once connection closed
+        break
+    else:
+        # Invalid data, ignore
+        pass
