@@ -6,6 +6,7 @@ import gettext
 import socket
 from PySide6 import QtCore, QtWidgets, QtGui
 from app.socket import setup_socket_client
+from app.widgets.mainwindow import MainWindow
 
 _ = gettext.gettext
 
@@ -16,7 +17,7 @@ host = socket.gethostname()
 
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self, socket_client: socket.socket):
+    def __init__(self, ):
         super().__init__()
 
         self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
@@ -45,7 +46,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication([])
 
-    widget = MyWidget(socket_client)
+    widget = MainWindow(socket_client)
     widget.resize(800, 600)
     widget.show()
 
