@@ -3,11 +3,9 @@
 import sys
 import random
 import gettext
-import subprocess
-import pathlib
 import socket
 from PySide6 import QtCore, QtWidgets, QtGui
-from app.config import socket_port
+from app.socket import setup_socket_client
 
 _ = gettext.gettext
 
@@ -18,7 +16,7 @@ host = socket.gethostname()
 
 
 class MyWidget(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, socket_client: socket.socket):
         super().__init__()
 
         self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
@@ -35,28 +33,19 @@ class MyWidget(QtWidgets.QWidget):
 
     @QtCore.Slot()
     def magic(self):
-        s.send('quit'.encode())
         self.text.setText(random.choice(self.hello))
 
 
 if __name__ == "__main__":
     gettext.bindtextdomain(binName)
-    root_socket_server_path = pathlib.Path(
-        __file__).parent.absolute().joinpath('genos_root.py').__str__()
-    proc = subprocess.Popen('kdesu ' +
-                            root_socket_server_path, shell=True)
-    while True:
-        try:
-            s.connect((host, socket_port))
-            break
-        except:
-            pass
+
+    socket_client = setup_socket_client()
 
     print(_('Hello World'))
 
     app = QtWidgets.QApplication([])
 
-    widget = MyWidget()
+    widget = MyWidget(socket_client)
     widget.resize(800, 600)
     widget.show()
 

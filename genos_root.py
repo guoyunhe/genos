@@ -2,17 +2,10 @@
 
 import socket
 from app.cleaners.journal import JournalCleaner
-from app.config import socket_port
-
-s = socket.socket()
-host = socket.gethostname()
-
-s.bind((host, socket_port))
-
-s.listen(0)
+from app.socket import setup_socket_server
 
 # Establish connection with client
-c, addr = s.accept()
+c = setup_socket_server()
 
 while True:
     # Receive data
