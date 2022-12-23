@@ -1,32 +1,23 @@
 from socket import socket
 
-from PySide6.QtCore import QFileInfo
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QLabel,
-    QCheckBox,
-    QApplication,
-    QDialog,
-    QTabWidget,
-    QLineEdit,
-    QDialogButtonBox,
     QFrame,
-    QListWidget,
-    QGroupBox,
 )
+
+from app.cleaners.journal import JournalCleaner
+from app.util import format_byte_size
 
 
 class CleanerTab(QWidget):
     def __init__(self, socket_client: socket, parent: QWidget):
         super().__init__(parent)
 
-        file_name_label = QLabel("File Name:")
-        file_name_edit = QLineEdit('foobar')
-
-        path_label = QLabel("Path:")
-        path_value_label = QLabel('foobar')
-        path_value_label.setFrameStyle(QFrame.Panel | QFrame.Sunken)
+        journal_label = QLabel("Journal logs")
+        journal_usage, journal_clean = JournalCleaner.usage()
+        path_value_label = QLabel('Usage: ' + format_byte_size(journal_usage))
 
         size_label = QLabel("Size:")
         size = 1024
@@ -42,9 +33,7 @@ class CleanerTab(QWidget):
         last_mod_value_label.setFrameStyle(QFrame.Panel | QFrame.Sunken)
 
         main_layout = QVBoxLayout()
-        main_layout.addWidget(file_name_label)
-        main_layout.addWidget(file_name_edit)
-        main_layout.addWidget(path_label)
+        main_layout.addWidget(journal_label)
         main_layout.addWidget(path_value_label)
         main_layout.addWidget(size_label)
         main_layout.addWidget(size_value_label)
