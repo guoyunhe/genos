@@ -1,4 +1,4 @@
-def format_byte_size(num):
+def format_byte_size(num: int):
     for unit in ["B", "KB", "MB"]:
         if abs(num) < 1000:
             return f"{num:3.1f}{unit}"
