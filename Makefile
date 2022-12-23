@@ -6,4 +6,4 @@ mo:
     done
 
 pot:
-	xgettext *.py -o po/template.pot --omit-header
+	xgettext *.py app/*.py app/widgets/*.py -o po/template.pot --omit-header
