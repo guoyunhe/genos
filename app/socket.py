@@ -1,6 +1,7 @@
 import socket
 from pathlib import Path
 from subprocess import Popen
+from time import sleep
 
 port = 12345
 
@@ -18,7 +19,7 @@ def setup_socket_client():
             s.connect((host, port))
             break
         except:
-            pass
+            sleep(0.2)
     return s
 
 
