@@ -56,11 +56,11 @@ class CleanerPane(QWidget):
         if self.need_optimize():
             self.optimize_button.setEnabled(True)
             self.optimize_button.setChecked(False)
-            self.optimize_button.setText('Optimize')
+            self.optimize_button.setText(_('Optimize'))
         else:
             self.optimize_button.setEnabled(False)
             self.optimize_button.setChecked(True)
-            self.optimize_button.setText('Optimized')
+            self.optimize_button.setText(_('Optimized'))
 
     def scan(self) -> int:
         return 0
