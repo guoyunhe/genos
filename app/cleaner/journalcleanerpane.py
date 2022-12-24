@@ -1,22 +1,24 @@
 import asyncio
+from gettext import gettext as _
 from os import path, walk
+
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (
     QWidget,
 )
+
 from app.cleaner.cleanerpane import CleanerPane
 from app.server import connect_server
 
 
 class JournalCleanerPane(CleanerPane):
-    title = 'Journal logs'
+    title = _('Journal logs')
 
     def __init__(self, parent: QWidget):
         super().__init__(parent)
 
-    def scan(self) -> tuple[int, int]:
+    def scan(self) -> int:
         total_size = 0
-        clean_size = 0
 
         for dirpath, dirnames, filenames in walk('/var/log/journal'):
             for f in filenames:
@@ -24,10 +26,7 @@ class JournalCleanerPane(CleanerPane):
                 size = path.getsize(fp)
                 total_size += size
 
-                if not f.endswith('system.journal') and not f.endswith('user-1000.journal'):
-                    clean_size += size
-
-        return total_size, clean_size
+        return total_size
 
     @Slot()
     def clean(self):
@@ -41,7 +40,6 @@ class JournalCleanerPane(CleanerPane):
 
         data = await reader.read(100)
         message = data.decode()
-        print(message)
         writer.close()
         if (message == 'done'):
             self.update()

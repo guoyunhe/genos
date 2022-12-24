@@ -1,11 +1,15 @@
-#: genos.py:45
-msgid "Hello World"
-msgstr ""
-
-#: app/widgets/mainwindow.py:17
+#: app/mainwindow.py:17
 msgid "Cleaner"
 msgstr ""
 
-#: app/widgets/mainwindow.py:22
+#: app/mainwindow.py:22
 msgid "Genos Toolbox"
+msgstr ""
+
+#: app/cleaner/cleanerpane.py:23
+msgid "Clean"
+msgstr ""
+
+#: app/cleaner/journalcleanerpane.py:15
+msgid "Journal logs"
 msgstr ""
