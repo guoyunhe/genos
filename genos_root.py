@@ -1,27 +1,38 @@
 #!/usr/bin/python3
 
-import socket
-from app.cleaners.journal import JournalCleaner
-from app.socket import setup_socket_server
+import asyncio
 
-# Establish connection with client
-c = setup_socket_server()
+from server.journal_clean import journal_clean
 
-while True:
-    # Receive data
-    msg = c.recv(1024).decode()
-    params = msg.split()
+server = None
 
-    if params[0] == 'clean':
-        if params[0] == 'journal':
-            JournalCleaner.clean()
-    elif params[0] == 'config':
-        pass
-    elif params[0] == 'quit':
-        # Close the connection with the client
-        c.close()
-        # Breaking once connection closed
-        break
-    else:
-        # Invalid data, ignore
-        pass
+
+async def handle_message(reader, writer):
+    global server
+
+    data = await reader.read(100)
+    message = data.decode()
+
+    if message == 'quit':
+        server.close()
+        writer.write('bye'.encode())
+    elif message == 'journal_clean':
+        journal_clean()
+        writer.write('done'.encode())
+
+    await writer.drain()
+
+    writer.close()
+
+
+async def main():
+    global server
+    server = await asyncio.start_server(handle_message, '127.0.0.1', 48498)
+
+    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)
+    print(f'Serving on {addrs}')
+
+    async with server:
+        await server.serve_forever()
+
+asyncio.run(main())
