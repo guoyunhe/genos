@@ -9,6 +9,7 @@ from PySide6.QtWidgets import (
 
 from app.cleaner.cleanerpane import CleanerPane
 from app.server import connect_server
+from app.util import parse_byte_size
 
 
 class JournalCleanerPane(CleanerPane):
@@ -23,6 +24,7 @@ class JournalCleanerPane(CleanerPane):
 
     @Slot()
     def optimize(self):
+        print('optimize')
         asyncio.run(self.async_optimize())
 
     def scan(self) -> int:
@@ -49,6 +51,12 @@ class JournalCleanerPane(CleanerPane):
             self.update()
 
     def need_optimize(self) -> bool:
+        config_file = open('/etc/systemd/journald.conf', 'r')
+        lines = config_file.readlines()
+        for line in lines:
+            if line.startswith('SystemMaxUse='):
+                size = parse_byte_size(line[13:].strip())
+                return size > 50*1000*1000  # 50M
         return True
 
     async def async_optimize(self):

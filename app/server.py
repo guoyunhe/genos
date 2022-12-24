@@ -6,7 +6,6 @@ from subprocess import Popen
 def start_server():
     server_path = Path(__file__).parent.parent.absolute().joinpath(
         'genos_root.py').__str__()
-    print(server_path)
     Popen('kdesu ' + server_path, shell=True)
 
 
