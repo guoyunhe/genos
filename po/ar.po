@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
-"PO-Revision-Date: 2022-12-24 10:20\n"
+"PO-Revision-Date: 2022-12-24 11:57\n"
 
 #: app/mainwindow.py:17
 msgid "Cleaner"
@@ -20,11 +20,19 @@ msgstr ""
 msgid "Genos Toolbox"
 msgstr ""
 
-#: app/cleaner/cleanerpane.py:23
+#: app/cleaner/cleanerpane.py:24
 msgid "Clean"
 msgstr ""
 
-#: app/cleaner/journalcleanerpane.py:15
+#: app/cleaner/cleanerpane.py:27 app/cleaner/cleanerpane.py:59
+msgid "Optimize"
+msgstr ""
+
+#: app/cleaner/cleanerpane.py:63
+msgid "Optimized"
+msgstr ""
+
+#: app/cleaner/journalcleanerpane.py:16
 msgid "Journal logs"
 msgstr ""
 
