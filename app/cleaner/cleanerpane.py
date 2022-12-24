@@ -53,7 +53,7 @@ class CleanerPane(QWidget):
         total_size = self.scan()
         self.usage_label.setText(format_byte_size(total_size))
 
-        if self.needOptimize():
+        if self.need_optimize():
             self.optimize_button.setEnabled(True)
             self.optimize_button.setChecked(False)
             self.optimize_button.setText('Optimize')
@@ -65,5 +65,5 @@ class CleanerPane(QWidget):
     def scan(self) -> int:
         return 0
 
-    def needOptimize(self) -> bool:
+    def need_optimize(self) -> bool:
         return False

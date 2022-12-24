@@ -17,6 +17,14 @@ class JournalCleanerPane(CleanerPane):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
 
+    @Slot()
+    def clean(self):
+        asyncio.run(self.async_clean())
+
+    @Slot()
+    def optimize(self):
+        asyncio.run(self.async_optimize())
+
     def scan(self) -> int:
         total_size = 0
 
@@ -28,14 +36,25 @@ class JournalCleanerPane(CleanerPane):
 
         return total_size
 
-    @Slot()
-    def clean(self):
-        asyncio.run(self.async_clean())
-
     async def async_clean(self):
         reader, writer = await connect_server()
 
         writer.write('journal_clean'.encode())
+        await writer.drain()
+
+        data = await reader.read(100)
+        message = data.decode()
+        writer.close()
+        if (message == 'done'):
+            self.update()
+
+    def need_optimize(self) -> bool:
+        return True
+
+    async def async_optimize(self):
+        reader, writer = await connect_server()
+
+        writer.write('journal_optimize'.encode())
         await writer.drain()
 
         data = await reader.read(100)
