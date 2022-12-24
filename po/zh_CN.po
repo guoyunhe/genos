@@ -10,21 +10,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
-"PO-Revision-Date: 2022-12-24 10:20\n"
+"PO-Revision-Date: 2022-12-24 11:57\n"
 
 #: app/mainwindow.py:17
 msgid "Cleaner"
-msgstr ""
+msgstr "清理"
 
 #: app/mainwindow.py:22
 msgid "Genos Toolbox"
-msgstr ""
+msgstr "杰诺斯工具箱"
 
-#: app/cleaner/cleanerpane.py:23
+#: app/cleaner/cleanerpane.py:24
 msgid "Clean"
+msgstr "清理"
+
+#: app/cleaner/cleanerpane.py:27 app/cleaner/cleanerpane.py:59
+msgid "Optimize"
 msgstr ""
 
-#: app/cleaner/journalcleanerpane.py:15
-msgid "Journal logs"
+#: app/cleaner/cleanerpane.py:63
+msgid "Optimized"
 msgstr ""
+
+#: app/cleaner/journalcleanerpane.py:16
+msgid "Journal logs"
+msgstr "Journal 日志"
 
