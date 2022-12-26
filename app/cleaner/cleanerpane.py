@@ -34,7 +34,7 @@ class CleanerPane(QWidget):
         main_layout.addWidget(self.title_label)
         main_layout.addStretch(1)
         main_layout.addWidget(self.usage_label)
-        main_layout.addStretch(1)
+        main_layout.addSpacing(1)
         main_layout.addWidget(self.optimize_button)
         main_layout.addWidget(self.clean_button)
         self.setLayout(main_layout)

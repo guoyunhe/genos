@@ -24,7 +24,6 @@ class JournalCleanerPane(CleanerPane):
 
     @Slot()
     def optimize(self):
-        print('optimize')
         asyncio.run(self.async_optimize())
 
     def scan(self) -> int:
@@ -33,8 +32,9 @@ class JournalCleanerPane(CleanerPane):
         for dirpath, dirnames, filenames in walk('/var/log/journal'):
             for f in filenames:
                 fp = path.join(dirpath, f)
-                size = path.getsize(fp)
-                total_size += size
+                if not path.islink(fp):
+                    size = path.getsize(fp)
+                    total_size += size
 
         return total_size
 

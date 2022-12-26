@@ -4,6 +4,7 @@ import asyncio
 
 from server.journal_clean import journal_clean
 from server.journal_optimize import journal_optimize
+from server.zypper import zypper_clean
 
 server = None
 
@@ -22,6 +23,9 @@ async def handle_message(reader, writer):
         writer.write('done'.encode())
     elif message == 'journal_optimize':
         journal_optimize()
+        writer.write('done'.encode())
+    elif message == 'zypper_clean':
+        zypper_clean()
         writer.write('done'.encode())
 
     await writer.drain()
