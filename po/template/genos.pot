@@ -18,6 +18,10 @@ msgstr ""
 msgid "Optimized"
 msgstr ""
 
-#: app/cleaner/journalcleanerpane.py:16
+#: app/cleaner/mod/journal.py:16
 msgid "Journal logs"
+msgstr ""
+
+#: app/cleaner/mod/zypper.py:15
+msgid "Zypper cache"
 msgstr ""

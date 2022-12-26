@@ -6,4 +6,4 @@ mo:
     done
 
 pot:
-	xgettext *.py */*.py */*/*.py -o po/template/genos.pot --omit-header
+	xgettext *.py */*.py */*/*.py */*/*/*.py -o po/template/genos.pot --omit-header
