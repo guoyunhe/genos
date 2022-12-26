@@ -1,3 +1,4 @@
 files:
   - source: /po/template/genos.pot
+    dest: genos.po
     translation: /po/%osx_locale%/genos.po
