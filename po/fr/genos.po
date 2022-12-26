@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Crowdin-Project: genos\n"
+"X-Crowdin-Project-ID: 557033\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /main/po/template/genos.pot\n"
+"X-Crowdin-File-ID: 41331\n"
+"Project-Id-Version: genos\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"PO-Revision-Date: 2022-12-26 05:43\n"
+
+#: app/mainwindow.py:17
+msgid "Cleaner"
+msgstr ""
+
+#: app/mainwindow.py:22
+msgid "Genos Toolbox"
+msgstr ""
+
+#: app/cleaner/cleanerpane.py:24
+msgid "Clean"
+msgstr ""
+
+#: app/cleaner/cleanerpane.py:27 app/cleaner/cleanerpane.py:59
+msgid "Optimize"
+msgstr ""
+
+#: app/cleaner/cleanerpane.py:63
+msgid "Optimized"
+msgstr ""
+
+#: app/cleaner/journalcleanerpane.py:16
+msgid "Journal logs"
+msgstr ""
+
