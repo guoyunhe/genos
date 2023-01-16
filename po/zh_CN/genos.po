@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
-"PO-Revision-Date: 2022-12-26 08:45\n"
+"PO-Revision-Date: 2022-12-26 10:24\n"
 
 #: app/mainwindow.py:17
 msgid "Cleaner"
@@ -32,7 +32,11 @@ msgstr ""
 msgid "Optimized"
 msgstr ""
 
-#: app/cleaner/journalcleanerpane.py:16
+#: app/cleaner/mod/journal.py:16
 msgid "Journal logs"
+msgstr ""
+
+#: app/cleaner/mod/zypper.py:15
+msgid "Zypper cache"
 msgstr ""
 
